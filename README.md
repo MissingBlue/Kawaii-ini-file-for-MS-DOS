@@ -40,7 +40,7 @@ call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [u
 ### sectionName (optional) ###
 Set the section name for the *valueMame*. **SETTINGS** is used as default if there is no *sectionName* in .ini file.
 ### valueName ###
-Set he name for the value in .ini file.
+Set the name for the value in .ini file.
 ### defaultValue (optional) ###
 If **/** is set to the value, *defaultValue* will be replaced with it.
 ### usesDoubleQuotes (optional) ###
