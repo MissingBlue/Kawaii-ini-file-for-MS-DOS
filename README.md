@@ -20,7 +20,6 @@ rem You have to impliment some lines like above into your "ini.bat" by yourself 
 
 ## sample.bat ##
 ```bat
-...
 call ini.bat sample.ini
 
 echo %sample.value_0%
@@ -29,14 +28,12 @@ echo %sample.value_1%
 rem bye
 echo %example.value_0%
 rem "Echo is on|off." cause there are no line in the "ini.bat" like "call :inini example value_0".
-...
 ```
 # Example with *fetchesAuto* #
 ## ini.bat ##
 Nothing to do.
 ## sample.bat ##
 ```bat
-...
 call ini.bat sample.ini 1
 rem Set any string to 2nd argument.
 
@@ -46,21 +43,19 @@ echo %sample.value_1%
 rem /
 echo %example.value_0%
 rem ho
-...
 ```
 # About #
-
 ```bat
 call ini.bat [iniFilePath] [fetchesAuto]
 ```
-Put a line like an above one into your .bat file. *fetchesAuto* is a flag which fetches all values in the *iniFilePath* automatically. Set any string to there to enable it. Note that you can still call **:inini** any number of times in the ini.bat file even if that flag is on. That will overwrite the corresponded value fetched by the flag.
+Put a line like an above one into your .bat file. *iniFilePath* is a path for ini. file. **settings.ini** is used if that was empty. *fetchesAuto* is a flag which fetches all values in the *iniFilePath* automatically. Set any string to there to enable it. Note that you can still call **:inini** any number of times in the ini.bat file even if that flag is on. That will overwrite the corresponded value fetched by the flag.
 ## Syntax ##
 ```bat
 call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [usesDoubleQuoter] [asFile] [confirmsFile] sDefaultValue] [label] [valueCollectionName]
 ```
 ## Parameters ##
 ### sectionName (optional) ###
-Set the section name for the *valueMame*. **SETTINGS** is used as default if there is no *sectionName* in .ini file.
+Set the section name for the *valueMame*. **settings** is used as default if there is no *sectionName* in .ini file.
 ### valueName ###
 Set the name for the value in .ini file.
 ### defaultValue (optional) ###
