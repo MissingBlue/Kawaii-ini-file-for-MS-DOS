@@ -49,11 +49,7 @@ if defined INI_CREATE_PRESET (
 
 rem beginning of INI values
 
-call :inini SAMPLE_0 icon "" "" icon.svg 1
-call :inini SAMPLE_1 PROPERTY_0 1
-call :inini SAMPLE_1 PROPERTY_1 1
-call :inini SAMPLE_2 PROPERTY_0 1
-call :inini SAMPLE_3 PROPERTY_0 1
+rem call :inini ...
 
 rem end of INI values
 
