@@ -8,11 +8,17 @@ if "%~1"=="" (set INI_FILE_PATH=settings.ini) else (set INI_FILE_PATH="%~1")
 
 if not exist %INI_FILE_PATH% exit /b
 
+set INI_FETCH_AUTO=%~2
 set INI_DEFAULT_SECTION_NAME=SETTINGS
 set INI_SECTION=%INI_DEFAULT_SECTION_NAME%
 for /f "usebackq delims== tokens=1,2" %%a in (%INI_FILE_PATH%) do (
 	set INI_K=%%a
-	if "!INI_K:~0,1!"=="[" (set INI_SECTION=!INI_K:~1,-1!) else (set INI.!INI_SECTION!.%%a=%%b)
+	if "!INI_K:~0,1!"=="[" (
+		set INI_SECTION=!INI_K:~1,-1!
+	) else (
+		set INI.!INI_SECTION!.%%a=%%b
+		if not "%INI_FETCH_AUTO%"=="" set !INI_SECTION!.%%a=%%b
+	)
 )
 
 set INI_LENGTH=0
@@ -39,6 +45,9 @@ exit /b
 :inini
 
 if "%~1"=="" (set INI_SECTION=%INI_DEFAULT_SECTION_NAME%) else (set INI_SECTION=%~1)
+
+if not "%INI_FETCH_AUTO%"=="" set %INI_SECTION%.%~2=
+
 set INI_KEYS[%INI_LENGTH%]=%INI_SECTION%.%~2
 set INI_K=INI_KEYS[%INI_LENGTH%]
 set INI_V=INI_VALUES[%INI_LENGTH%]

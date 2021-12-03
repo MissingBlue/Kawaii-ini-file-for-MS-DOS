@@ -14,7 +14,7 @@ value_0=ho
 ...  
 call :inini sample value_0 bye
 call :inini sample value_1 bye
-rem You have to impliment above lines into your "ini.bat" by yourself.
+rem You have to impliment some lines like above into your "ini.bat" by yourself for the handling value easily.
 ...  
 ```
 
@@ -31,7 +31,29 @@ echo %example.value_0%
 rem "Echo is on|off." cause there are no line in the "ini.bat" like "call :inini example value_0".
 ...
 ```
+# Example with *fetchesAuto* #
+## ini.bat ##
+Nothing to do.
+## sample.bat ##
+```bat
+...
+call ini.bat sample.ini 1
+rem Set any string to 2nd argument.
+
+echo %sample.value_0%
+rem hi
+echo %sample.value_1%
+rem /
+echo %example.value_0%
+rem ho
+...
+```
 # About #
+
+```bat
+call ini.bat [iniFilePath] [fetchesAuto]
+```
+Put a line like an above one into your .bat file. *fetchesAuto* is a flag which fetches all values in the *iniFilePath* automatically. Set any string to there to enable it. Note that you can still call **:inini** any number of times in the ini.bat file even if that flag is on. That will overwrite the corresponded value fetched by the flag.
 ## Syntax ##
 ```bat
 call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [usesDoubleQuoter] [asFile] [confirmsFile] sDefaultValue] [label] [valueCollectionName]
