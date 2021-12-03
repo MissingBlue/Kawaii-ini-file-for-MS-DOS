@@ -42,7 +42,7 @@ Set the section name for the *valueMame*. **SETTINGS** is used as default if the
 ### valueName ###
 Set the name for the value in .ini file.
 ### defaultValue (optional) ###
-If **/** is set to the value, *defaultValue* will be replaced with it.
+If **/** is set to the value of *valueName*, *defaultValue* will be replaced with it.
 ### usesDoubleQuotes (optional) ###
 If any string is set to this parameter, the value is automatically enclosed in double quotes.
 ### asFile (optional) ###
