@@ -195,7 +195,7 @@ if not "%~4"=="" if not exist "!%~3!" (
 exit /b
 
 :INISUB_THATS_WHY_I_CANT_STOP_TO_LOVE_BATCH_AKA_ECHO_PARAMETER
-set INI_K="%~1"
+set INI_K=%~1
 set INI_V=%~2
 if %INI_K:~0,1%%INI_K:~0,1%=="" if %INI_K:~-1%%INI_K:~-1%=="" set INI_K=%INI_K:~1,-1%
 if %INI_V:~0,1%%INI_V:~0,1%=="" if %INI_V:~-1%%INI_V:~-1%=="" set INI_V=%INI_V:~1,-1%
