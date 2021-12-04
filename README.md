@@ -18,6 +18,7 @@
     + [usesDefaultValue (optional)](#usesdefaultvalue-optional)
     + [label (optional)](#label-optional)
     + [valueCollectionName (optional)](#valuecollectionname-optional)
+    + [comment (optional)](#comment-optional)
 
 # Example #
 
