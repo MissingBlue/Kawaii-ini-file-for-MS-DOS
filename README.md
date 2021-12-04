@@ -1,3 +1,4 @@
+# Table of contents #
 - [Example](#example)
   * [sample.ini](#sampleini)
   * [ini.bat](#inibat)
