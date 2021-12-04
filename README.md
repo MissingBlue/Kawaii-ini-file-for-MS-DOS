@@ -1,3 +1,24 @@
+- [Example](#example)
+  * [sample.ini](#sampleini)
+  * [ini.bat](#inibat)
+  * [sample.bat](#samplebat)
+- [Example with *fetchesAuto*](#example-with-fetchesauto)
+  * [ini.bat](#inibat-1)
+  * [sample.bat](#samplebat-1)
+- [Usage](#usage)
+- [Syntax](#syntax)
+  * [Parameters](#parameters)
+    + [sectionName (optional)](#sectionname-optional)
+    + [valueName](#valuename)
+    + [defaultValue (optional)](#defaultvalue-optional)
+    + [usesDoubleQuotes (optional)](#usesdoublequotes-optional)
+    + [asFile (optional)](#asfile-optional)
+    + [confirmsFile (optional)](#confirmsfile-optional)
+    + [usesDefaultValue (optional)](#usesdefaultvalue-optional)
+    + [label (optional)](#label-optional)
+    + [valueCollectionName (optional)](#valuecollectionname-optional)
+
+
 # Example #
 
 ## sample.ini ##
@@ -44,15 +65,18 @@ rem /
 echo %example.value_0%
 rem ho
 ```
-# About #
+# Usage #
 ```bat
 call ini.bat [iniFilePath] [fetchesAuto]
 ```
-Put a line like an above one into your .bat file. *iniFilePath* is a path for ini. file. **settings.ini** is used if that was empty. *fetchesAuto* is a flag which fetches all values in the *iniFilePath* automatically. Set any string to there to enable it. Note that you can still call **:inini** any number of times in the ini.bat file even if that flag is on. That will overwrite the corresponded value fetched by the flag.
-## Syntax ##
+Put a line like an above one into your .bat. *iniFilePath* is a path for .ini. **settings.ini** is used if that was empty. *fetchesAuto* is a flag which fetches all values in the *iniFilePath* automatically. Set any string to there to enable it. Note that you can still call **[:inini](#Syntax)** any number of times in the **ini.bat** even if that flag is on. That will overwrite the corresponded value fetched by the flag.
+
+If *iniFilePath* does not exist, *iniFilePath* will be created automatically as **[:inini](#Syntax)** specified.
+# Syntax #
 ```bat
 call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [usesDoubleQuoter] [asFile] [confirmsFile] sDefaultValue] [label] [valueCollectionName]
 ```
+Put as many lines as needed at specified position in **ini.bat**.
 ## Parameters ##
 ### sectionName (optional) ###
 Set the section name for the *valueMame*. **settings** is used as default if there is no *sectionName* in .ini file.
