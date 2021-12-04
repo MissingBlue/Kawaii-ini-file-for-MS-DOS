@@ -19,7 +19,6 @@
     + [label (optional)](#label-optional)
     + [valueCollectionName (optional)](#valuecollectionname-optional)
 
-
 # Example #
 
 ## sample.ini ##
@@ -75,7 +74,7 @@ Put a line like an above one into your .bat. *iniFilePath* is a path for .ini. *
 If *iniFilePath* does not exist, *iniFilePath* will be created automatically as **[:inini](#Syntax)** specified.
 # Syntax #
 ```bat
-call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [usesDoubleQuoter] [asFile] [confirmsFile] sDefaultValue] [label] [valueCollectionName]
+call :inini [sectionName=%INI_DEFAULT_SECTION_NAME%] valueName [defaultValue] [usesDoubleQuoter] [asFile] [confirmsFile] sDefaultValue] [label] [valueCollectionName] [comment]
 ```
 Put as many lines as needed at specified position in **ini.bat**.
 ## Parameters ##
@@ -97,3 +96,5 @@ if any string is set, *defaultValue* is forced to be set to *valueName* even if 
 The value is set like "*label* value".
 ### valueCollectionName (optional) ###
 The value is set like "!%*valueCollectionName*%[%value%]!". To impliment "%*valueCollectionName*%[...]" is needed in any .bat file.
+### comment (optional) ###
+*comment* will be inserted as a comment in the next line of the parameter. *comment* must be enclosed in double quotes if that has white-space. 

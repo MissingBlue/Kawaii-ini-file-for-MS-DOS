@@ -76,12 +76,13 @@ pause
 		
 		set INI_CATEGORY=!INI_SECTIONS[%%i]!
 		echo [!INI_CATEGORY!]>>%INI_FILE_PATH%
-		:: https://qiita.com/plcherrim/items/c7c477cacf8c97792e17
+		rem https://qiita.com/plcherrim/items/c7c477cacf8c97792e17
 		call set l0=%%INIS.!INI_CATEGORY!%%
 		
 		for /l %%j in (0,1,!l0!) do (
 			call set INI_K=%%INIS.!INI_CATEGORY![%%j].k%%
 			call set INI_V=%%INIS.!INI_CATEGORY![%%j].v%%
+			if not defined INI_V set INI_V=/
 			rem https://stackoverflow.com/questions/20484151/redirecting-output-from-within-batch-file
 			call :INISUB_THATS_WHY_I_CANT_STOP_TO_LOVE_BATCH_AKA_ECHO_PARAMETER !INI_K! !INI_V! null>>%INI_FILE_PATH%
 			call set INI_COMMENT=%%INIS.!INI_CATEGORY![%%j].c%%
@@ -234,7 +235,13 @@ exit /b
 
 :INISUB_REMOVE_WQ
 set INI_REMOVE_WQ_V=%~1
-if %INI_REMOVE_WQ_V:~0,1%%INI_REMOVE_WQ_V:~0,1%=="" if %INI_REMOVE_WQ_V:~-1%%INI_REMOVE_WQ_V:~-1%=="" set %~2=%INI_REMOVE_WQ_V:~1,-1%
+if defined INI_REMOVE_WQ_V (
+	set INI_REMOVE_WQ_V0=%INI_REMOVE_WQ_V:~0,1%%INI_REMOVE_WQ_V:~0,1%
+	set INI_REMOVE_WQ_V1=%INI_REMOVE_WQ_V:~-1%%INI_REMOVE_WQ_V:~-1%
+	if !INI_REMOVE_WQ_V0!=="" if !INI_REMOVE_WQ_V1!=="" set %~2=%INI_REMOVE_WQ_V:~1,-1%
+) else (
+	set %~2=
+)
 exit /b
 
 :INISUB_DEV
